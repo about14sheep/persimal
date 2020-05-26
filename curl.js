@@ -38,6 +38,7 @@ if(options.asci){
         .then(body => console.log(body))
         .catch(err => console.log(`Im sure its not your fault but...\n${err}`))
 }
+
 if(options.output){
     fetch(options._unknown[0])
         .then(res => res.text())
