@@ -1,5 +1,6 @@
 const commandLineArgs = require('command-line-args');
 const fetch = require('node-fetch');
+const fs = require('fs');
 
 const optionDefinitions = [
     {
@@ -36,6 +37,13 @@ if(options.asci){
         .then(res => res.text())
         .then(body => console.log(body))
         .catch(err => console.log(`Im sure its not your fault but...\n${err}`))
+}
+if(options.output){
+    fetch(options._unknown[0])
+        .then(res => res.text())
+        .then(body => fs.promises.writeFile(options.output, body))
+        .catch(err => console.log(err))
+    
 }
 
 
